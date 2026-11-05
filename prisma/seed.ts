@@ -244,7 +244,8 @@ College students, aspiring filmmakers, actors, directors, content creators, medi
     }
   ];
 
-  for (const [index, tt] of ticketTypes.entries()) {
+   for (let index = 0; index < ticketTypes.length; index++) {
+    const tt = ticketTypes[index];
     await prisma.ticketType.create({
       data: {
         eventId: event.id,
@@ -257,7 +258,7 @@ College students, aspiring filmmakers, actors, directors, content creators, medi
         isActive: true
       }
     });
-  }
+  } 
 
   // ========== SAMPLE SPEAKERS ==========
   const speakers = [
