@@ -244,7 +244,7 @@ College students, aspiring filmmakers, actors, directors, content creators, medi
     }
   ];
 
-   for (let index = 0; index < ticketTypes.length; index++) {
+    for (let index = 0; index < ticketTypes.length; index++) {
     const tt = ticketTypes[index];
     await prisma.ticketType.create({
       data: {
