@@ -1,10 +1,20 @@
 import { prisma } from "@/lib/prisma";
 
+// Do not prerender at build time – needs the database at request time
+export const dynamic = "force-dynamic";
+
 export default async function SpeakersPage() {
-  const speakers = await prisma.speaker.findMany({
-    where: { isActive: true },
-    orderBy: { sortOrder: "asc" }
-  });
+  let speakers: Awaited<ReturnType<typeof prisma.speaker.findMany>> = [];
+
+  try {
+    speakers = await prisma.speaker.findMany({
+      where: { isActive: true },
+      orderBy: { sortOrder: "asc" }
+    });
+  } catch {
+    // DB not ready yet (e.g. first deploy before /setup)
+    speakers = [];
+  }
 
   return (
     <div className="section-padding">
