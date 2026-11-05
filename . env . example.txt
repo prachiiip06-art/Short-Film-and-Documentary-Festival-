@@ -1,0 +1,13 @@
+# Required – Neon PostgreSQL connection string
+DATABASE_URL="postgresql://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require"
+
+# Required – used for signing sessions / JWT
+AUTH_SECRET="change-this-to-a-long-random-string"
+
+# Required for production – your live site URL (no trailing slash)
+NEXT_PUBLIC_APP_URL="https://your-project.vercel.app"
+
+# Optional but recommended – Resend email
+RESEND_API_KEY="re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+RESEND_FROM_EMAIL="noreply@yourdomain.com"
+RESEND_FROM_NAME="Frame By Frame"
