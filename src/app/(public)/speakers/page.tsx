@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
 // Do not prerender at build time – needs the database at request time
 export const dynamic = "force-dynamic";
 
